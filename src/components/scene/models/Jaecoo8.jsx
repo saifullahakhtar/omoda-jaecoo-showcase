@@ -1,16 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import {
-	useGLTF,
-	useAnimations,
-	SpotLight,
-	// useHelper,
-	// TransformControls,
-} from "@react-three/drei";
+import { useGLTF, useAnimations, SpotLight } from "@react-three/drei";
 import * as THREE from "three";
 import TransitionMaterial3 from "@/components/mesh-transition-material/MeshTransitionMaterial3";
 import { useSnapshot } from "valtio";
 import { state } from "@/lib/store";
-// import { useFrame, useThree } from "@react-three/fiber";
 
 export function Jaecoo8({ transitionColor, currentAnimation, ...props }) {
 	const group = React.useRef();

@@ -10,21 +10,15 @@ import { useGSAP } from "@gsap/react";
 
 import "./style.css";
 
-// const hoverSound = new Audio("/cursor-hover.mp3");
-// hoverSound.preload = "auto";
-
 export default function Overlay() {
 	const snap = useSnapshot(state);
 	const {
 		colors,
 		selectedColor,
-		// animationNames,
 		doorsOpen,
 		trunkOpen,
-		// currentAnimation,
 		modelLights,
 		autoplayModel,
-		// camPosition,
 		orbitActive,
 	} = snap;
 
@@ -49,17 +43,6 @@ export default function Overlay() {
 	const toggleCamera = () => {
 		state.camPosition = "back";
 	};
-
-	// const playHoverSound = () => {
-	// 	// If sound is playing, reset it to avoid overlap
-	// 	if (hoverSound.currentTime > 0 && !hoverSound.paused) {
-	// 		hoverSound.currentTime = 0; // Reset to the beginning
-	// 	}
-	// 	// Play the sound only after the user has triggered the action (ensuring it's allowed)
-	// 	hoverSound.play().catch((error) => {
-	// 		console.error("Error playing sound:", error);
-	// 	});
-	// };
 
 	useGSAP(
 		() => {
@@ -171,20 +154,6 @@ export default function Overlay() {
 					<span className="text-base translate-y-[2px] opacity-50">
 						©
 					</span>
-					{/* <svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						strokeWidth={1.5}
-						stroke="currentColor"
-						className="size-4 lg:size-6"
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
-						/>
-					</svg> */}
 				</button>
 			</header>
 
@@ -253,7 +222,6 @@ export default function Overlay() {
 								selectedColor === color ? "selected" : ""
 							}
 							onClick={() => (state.selectedColor = color)}
-							// onMouseEnter={playHoverSound}
 						></li>
 					))}
 				</ul>
@@ -304,13 +272,6 @@ export default function Overlay() {
 							></path>
 						</svg>
 					</button>
-
-					{/* <button
-						className="pointer-events-auto"
-						onClick={toggleCamera}
-					>
-						Test
-					</button> */}
 				</div>
 			</nav>
 

@@ -19,18 +19,6 @@ import Studio from "./Studio";
 // 3D Model
 import { Jaecoo8 } from "./models/Jaecoo8";
 
-// function Loader() {
-// 	const { progress, loaded } = useProgress();
-
-// 	useEffect(() => {
-// 		state.loadingProgress = progress;
-// 	}, [progress]);
-
-// 	if (loaded) {
-// 		state.preLoading = 1;
-// 	}
-// }
-
 function Scene() {
 	const { selectedColor, isMobile, currentAnimation } = useSnapshot(state);
 	const cameraRef = useRef();
