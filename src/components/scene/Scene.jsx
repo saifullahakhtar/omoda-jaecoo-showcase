@@ -15,7 +15,6 @@ import Overlay from "@/components/overlay/Overlay";
 import Effects from "./Effects";
 import Floor from "./Floor";
 import Studio from "./Studio";
-// import Cursor from "../layout/Cursor";
 
 // 3D Model
 import { Jaecoo8 } from "./models/Jaecoo8";
@@ -78,7 +77,6 @@ function Scene() {
 	return (
 		<Suspense>
 			<Overlay />
-			{/* <Cursor /> */}
 
 			<Canvas
 				shadows
