@@ -5,7 +5,6 @@ import React, { Suspense, useEffect, useRef, useState } from "react";
 // Dependencies
 import { Canvas } from "@react-three/fiber";
 import { useSnapshot } from "valtio";
-// import { useProgress } from "@react-three/drei";
 
 // Store
 import { state } from "@/lib/store";
@@ -79,13 +78,11 @@ function Scene() {
 				ref={cameraRef}
 			>
 				<Studio />
-				{/* <Suspense fallback={false}> */}
 				<Jaecoo8
 					transitionColor={selectedColor}
 					currentAnimation={currentAnimation}
 					cameraRef={cameraRef}
 				/>
-				{/* </Suspense> */}
 				<Floor />
 				<Effects />
 			</Canvas>
