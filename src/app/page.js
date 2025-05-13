@@ -16,7 +16,7 @@ import lottieJson from "@/components/lottie/rotate.json";
 
 export default function Home() {
 	const [isLandscape, setIsLandscape] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 	const { progress } = useProgress();
 
 	const checkOrientation = () => {
@@ -43,7 +43,7 @@ export default function Home() {
 	useEffect(() => {
 		if (progress === 100) {
 			setTimeout(() => {
-				setIsLoading(true);
+				setIsLoading(false);
 			}, 500);
 		}
 	}, [progress]);
@@ -61,7 +61,7 @@ export default function Home() {
 				</div>
 			) : (
 				<>
-					{!isLoading && (
+					{isLoading && (
 						<div className="fixed top-0 left-0 w-screen h-screen z-50 flex justify-center items-center bg-black">
 							<div className="text-center">
 								<Lottie
