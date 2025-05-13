@@ -1,0 +1,230 @@
+.overlay-wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	pointer-events: none;
+	flex-direction: column;
+	align-items: flex-start;
+	z-index: 1;
+	padding-left: 30px;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	gap: 0.6rem;
+	background-color: #ffffff20;
+	width: fit-content;
+	/* margin-left: auto;
+	margin-right: auto; */
+	padding: 8px;
+	border-radius: 5px;
+	height: fit-content;
+}
+
+li.selected {
+	scale: 1;
+	border: 1px solid #fff;
+}
+
+li {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 4px;
+	pointer-events: all;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	background-size: 100% 100%;
+	filter: brightness(1.4) contrast(1.2);
+	display: inline-block;
+}
+
+/* Dynamically applying the color gradient */
+li {
+	background: linear-gradient(
+			145deg,
+			rgba(255, 255, 255, 0.2),
+			rgba(0, 0, 0, 0.2)
+		),
+		var(--color) !important; /* Dynamic background color */
+	background-image: linear-gradient(
+		135deg,
+		rgba(255, 255, 255, 0.4),
+		rgba(0, 0, 0, 0.5),
+		rgba(255, 255, 255, 0.4)
+	);
+	/* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1),
+		inset 0px 1px 2px rgba(255, 255, 255, 0.3); */
+}
+
+li.selected {
+	border: 1px solid #fff; /* white border for selected colors */
+}
+
+li.selected::after {
+	content: "";
+	width: 6px;
+	height: 6px;
+	background-color: #fff;
+	position: absolute;
+	border-radius: 5px;
+	top: 5px;
+	right: 5px;
+	mix-blend-mode: screen;
+}
+
+li:hover {
+	border: 1px solid #fff;
+	box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+	font-size: 3em;
+	color: #cecece;
+	margin: 0;
+	padding: 0;
+	line-height: 0.5em;
+}
+
+p {
+	color: #cecece;
+	opacity: 0.6;
+}
+
+.buy-button {
+	background-color: #55a558;
+	color: #fff;
+	border: none;
+	padding: 0.8rem 1.5rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	pointer-events: all;
+	font-size: 1.2em;
+	font-family: "Bebas Neue", serif;
+}
+
+.buy-button:hover {
+	background-color: #3f7391;
+}
+
+.download-button {
+	background-color: #444444;
+	color: #fff;
+	border: none;
+	padding: 0.8rem 1.5rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	pointer-events: all;
+	font-size: 1.2em;
+	font-family: "Bebas Neue", serif;
+}
+
+.download-button:hover {
+	background-color: #3f7391;
+}
+
+a {
+	text-decoration: none;
+	pointer-events: all;
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+	h1 {
+		font-size: 2em;
+		line-height: 1em;
+	}
+	header {
+		padding: 30px;
+		margin-top: unset;
+	}
+	.buy-button {
+		font-size: 0.8em;
+	}
+	.download-button {
+		font-size: 0.8em;
+	}
+	li {
+		width: 1rem;
+		height: 3rem;
+		border-radius: 6px;
+		pointer-events: all;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+}
+
+/* Controls */
+/* Animation controls container */
+.animation-controls {
+	display: flex;
+	gap: 0.8rem;
+	pointer-events: all;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.animation-controls button {
+	background: rgba(255, 255, 255, 0.1);
+	color: #fff;
+	border: 2px solid transparent;
+	padding: 0.6rem 1.2rem;
+	border-radius: 0.4rem;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+		transform 0.2s ease;
+}
+
+.animation-controls button:hover {
+	background: rgba(255, 255, 255, 0.2);
+	border-color: #fff;
+	transform: translateY(-2px);
+}
+
+.animation-controls button.active {
+	background: #fff;
+	color: #000;
+	border-color: #fff;
+	transform: scale(1.05);
+}
+
+@media only screen and (max-width: 600px) {
+	.animation-controls {
+		gap: 0.4rem;
+	}
+	.animation-controls button {
+		padding: 0.4rem 0.8rem;
+		font-size: 0.9rem;
+	}
+}
+
+.button-default {
+	background-color: #ffffff10;
+}
+
+.tooltip {
+	background: rgba(0, 0, 0, 0.75);
+	color: #fff;
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-size: 0.8rem;
+	white-space: nowrap;
+	pointer-events: none; /* so the div itself doesn’t capture pointer events */
+	width: 600px;
+	height: 600px;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+}
