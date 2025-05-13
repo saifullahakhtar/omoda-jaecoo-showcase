@@ -5,7 +5,7 @@ import React, { Suspense, useEffect, useRef, useState } from "react";
 // Dependencies
 import { Canvas } from "@react-three/fiber";
 import { useSnapshot } from "valtio";
-import { useProgress } from "@react-three/drei";
+// import { useProgress } from "@react-three/drei";
 
 // Store
 import { state } from "@/lib/store";
@@ -20,17 +20,17 @@ import Studio from "./Studio";
 // 3D Model
 import { Jaecoo8 } from "./models/Jaecoo8";
 
-function Loader() {
-	const { progress, loaded } = useProgress();
+// function Loader() {
+// 	const { progress, loaded } = useProgress();
 
-	useEffect(() => {
-		state.loadingProgress = progress;
-	}, [progress]);
+// 	useEffect(() => {
+// 		state.loadingProgress = progress;
+// 	}, [progress]);
 
-	if (loaded) {
-		state.preLoading = 1;
-	}
-}
+// 	if (loaded) {
+// 		state.preLoading = 1;
+// 	}
+// }
 
 function Scene() {
 	const { selectedColor, isMobile, currentAnimation } = useSnapshot(state);
@@ -93,7 +93,7 @@ function Scene() {
 				ref={cameraRef}
 			>
 				<Studio />
-				<Suspense fallback={<Loader />}>
+				<Suspense fallback={false}>
 					<Jaecoo8
 						transitionColor={selectedColor}
 						currentAnimation={currentAnimation}
