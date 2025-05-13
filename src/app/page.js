@@ -27,17 +27,30 @@ export default function Home() {
 		}
 	};
 
+	// useEffect(() => {
+	// 	// Check orientation when the component mounts
+	// 	checkOrientation();
+
+	// 	// Add event listener to handle orientation changes
+	// 	window.addEventListener("resize", checkOrientation);
+
+	// 	// Cleanup the event listener when the component unmounts
+	// 	return () => {
+	// 		window.removeEventListener("resize", checkOrientation);
+	// 	};
+	// }, []);
+
 	useEffect(() => {
 		// Check orientation when the component mounts
-		checkOrientation();
+		if (typeof window !== "undefined") {
+			checkOrientation();
+			window.addEventListener("resize", checkOrientation);
 
-		// Add event listener to handle orientation changes
-		window.addEventListener("resize", checkOrientation);
-
-		// Cleanup the event listener when the component unmounts
-		return () => {
-			window.removeEventListener("resize", checkOrientation);
-		};
+			// Cleanup the event listener when the component unmounts
+			return () => {
+				window.removeEventListener("resize", checkOrientation);
+			};
+		}
 	}, []);
 
 	useEffect(() => {
