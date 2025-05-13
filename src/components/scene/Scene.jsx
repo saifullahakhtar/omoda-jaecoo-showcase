@@ -63,7 +63,7 @@ function Scene() {
 	}, [mouseHoldTimer]);
 
 	return (
-		<Suspense>
+		<Suspense fallback={<>Loading...</>}>
 			<Overlay />
 
 			<Canvas
@@ -79,13 +79,13 @@ function Scene() {
 				ref={cameraRef}
 			>
 				<Studio />
-				<Suspense fallback={false}>
-					<Jaecoo8
-						transitionColor={selectedColor}
-						currentAnimation={currentAnimation}
-						cameraRef={cameraRef}
-					/>
-				</Suspense>
+				{/* <Suspense fallback={false}> */}
+				<Jaecoo8
+					transitionColor={selectedColor}
+					currentAnimation={currentAnimation}
+					cameraRef={cameraRef}
+				/>
+				{/* </Suspense> */}
 				<Floor />
 				<Effects />
 			</Canvas>
