@@ -13,14 +13,10 @@ import { state } from "@/lib/store";
 import Overlay from "@/components/overlay/Overlay";
 import Effects from "./Effects";
 import Floor from "./Floor";
-// import Studio from "./Studio";
 const DynamicStudio = dynamic(() => import("./Studio"), { ssr: false });
 const DynamicJaecoo8 = dynamic(() => import("./models/Jaecoo8"), {
 	ssr: false,
 });
-
-// 3D Model
-// import { Jaecoo8 } from "./models/Jaecoo8";
 
 function Scene() {
 	const { selectedColor, isMobile, currentAnimation } = useSnapshot(state);
