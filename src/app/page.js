@@ -5,14 +5,14 @@ import dynamic from "next/dynamic";
 import Lottie from "react-lottie-player";
 import { useProgress } from "@react-three/drei";
 
-import loadingLottieJson from "./loading-progress.json";
+import loadingLottieJson from "@/components/lottie/loading-progress.json";
 
 const SceneNoSSR = dynamic(() => import("@/components/scene/Scene"), {
 	ssr: false,
 	loading: () => null,
 });
 
-import lottieJson from "./rotate.json";
+import lottieJson from "@/components/lottie/rotate.json";
 
 export default function Home() {
 	const [isLandscape, setIsLandscape] = useState(false);
