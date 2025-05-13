@@ -13,10 +13,14 @@ import { state } from "@/lib/store";
 import Overlay from "@/components/overlay/Overlay";
 import Effects from "./Effects";
 import Floor from "./Floor";
-import Studio from "./Studio";
+// import Studio from "./Studio";
+const DynamicStudio = dynamic(() => import("./Studio"), { ssr: false });
+const DynamicJaecoo8 = dynamic(() => import("./models/Jaecoo8"), {
+	ssr: false,
+});
 
 // 3D Model
-import { Jaecoo8 } from "./models/Jaecoo8";
+// import { Jaecoo8 } from "./models/Jaecoo8";
 
 function Scene() {
 	const { selectedColor, isMobile, currentAnimation } = useSnapshot(state);
@@ -26,16 +30,14 @@ function Scene() {
 
 	useEffect(() => {
 		const handleMouseDown = () => {
-			// Set a timer to change orbitActive after 1 second
 			setMouseHoldTimer(
 				setTimeout(() => {
 					state.orbitActive = true;
 				}, 1000)
-			); // 1000ms = 1 second
+			);
 		};
 
 		const handleMouseUp = () => {
-			// Clear the timer and set orbitActive to false
 			if (mouseHoldTimer) {
 				clearTimeout(mouseHoldTimer);
 				setMouseHoldTimer(null);
@@ -44,12 +46,10 @@ function Scene() {
 		};
 
 		if (cameraRef.current) {
-			// Add event listeners for mouse down and mouse up
 			cameraRef.current.addEventListener("mousedown", handleMouseDown);
 			cameraRef.current.addEventListener("mouseup", handleMouseUp);
 		}
 
-		// Cleanup event listeners on component unmount
 		return () => {
 			if (cameraRef.current) {
 				cameraRef.current.removeEventListener(
@@ -62,7 +62,7 @@ function Scene() {
 	}, [mouseHoldTimer]);
 
 	return (
-		<Suspense fallback={<>Loading...</>}>
+		<Suspense fallback={<div>Loading...</div>}>
 			<Overlay />
 
 			<Canvas
@@ -77,12 +77,18 @@ function Scene() {
 				camera={{ position: [5, 0.5, 7], fov: isMobile ? 45 : 25 }}
 				ref={cameraRef}
 			>
-				<Studio />
-				<Jaecoo8
+				<DynamicStudio />
+				<DynamicJaecoo8
 					transitionColor={selectedColor}
 					currentAnimation={currentAnimation}
 					cameraRef={cameraRef}
 				/>
+				{/* <Studio />
+				<Jaecoo8
+					transitionColor={selectedColor}
+					currentAnimation={currentAnimation}
+					cameraRef={cameraRef}
+				/> */}
 				<Floor />
 				<Effects />
 			</Canvas>
