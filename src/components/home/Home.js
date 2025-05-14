@@ -2,10 +2,14 @@
 
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import Lottie from "react-lottie-player";
+// import Lottie from "react-lottie-player";
 import { useProgress } from "@react-three/drei";
 
 import loadingLottieJson from "@/components/lottie/loading-progress.json";
+
+const Lottie = dynamic(() => import("react-lottie-player"), {
+	ssr: false,
+});
 
 const SceneNoSSR = dynamic(() => import("@/components/scene/Scene"), {
 	ssr: false,
