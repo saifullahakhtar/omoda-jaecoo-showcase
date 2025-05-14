@@ -7,6 +7,7 @@ const nextConfig = {
 	experimental: {
 		appDir: true, // This is for Next.js App Directory
 	},
+	transpilePackages: ["react-lottie-player"],
 };
 
 export default nextConfig;
