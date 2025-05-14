@@ -1,56 +1,56 @@
 "use client";
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import Lottie from "react-lottie-player";
-import { useProgress } from "@react-three/drei";
+// import Lottie from "react-lottie-player";
+// import { useProgress } from "@react-three/drei";
 
-import loadingLottieJson from "@/components/lottie/loading-progress.json";
+// import loadingLottieJson from "@/components/lottie/loading-progress.json";
 
 const SceneNoSSR = dynamic(() => import("@/components/scene/Scene"), {
 	ssr: false,
 	loading: () => null,
 });
 
-import lottieJson from "@/components/lottie/rotate.json";
+// import lottieJson from "@/components/lottie/rotate.json";
 
 const Home = () => {
-	const [isLandscape, setIsLandscape] = useState(false);
-	const [isLoading, setIsLoading] = useState(true);
-	const { progress } = useProgress();
+	// const [isLandscape, setIsLandscape] = useState(false);
+	// const [isLoading, setIsLoading] = useState(true);
+	// const { progress } = useProgress();
 
-	const checkOrientation = () => {
-		if (window.innerWidth > window.innerHeight) {
-			setIsLandscape(true);
-		} else {
-			setIsLandscape(false);
-		}
-	};
+	// const checkOrientation = () => {
+	// 	if (window.innerWidth > window.innerHeight) {
+	// 		setIsLandscape(true);
+	// 	} else {
+	// 		setIsLandscape(false);
+	// 	}
+	// };
 
-	useEffect(() => {
-		// Check orientation when the component mounts
-		if (typeof window !== "undefined") {
-			checkOrientation();
-			window.addEventListener("resize", checkOrientation);
+	// useEffect(() => {
+	// 	// Check orientation when the component mounts
+	// 	if (typeof window !== "undefined") {
+	// 		checkOrientation();
+	// 		window.addEventListener("resize", checkOrientation);
 
-			// Cleanup the event listener when the component unmounts
-			return () => {
-				window.removeEventListener("resize", checkOrientation);
-			};
-		}
-	}, []);
+	// 		// Cleanup the event listener when the component unmounts
+	// 		return () => {
+	// 			window.removeEventListener("resize", checkOrientation);
+	// 		};
+	// 	}
+	// }, []);
 
-	useEffect(() => {
-		if (progress === 100) {
-			setTimeout(() => {
-				setIsLoading(false);
-			}, 500);
-		}
-	}, [progress]);
+	// useEffect(() => {
+	// 	if (progress === 100) {
+	// 		setTimeout(() => {
+	// 			setIsLoading(false);
+	// 		}, 500);
+	// 	}
+	// }, [progress]);
 
 	return (
 		<main className="h-screen w-screen">
-			{!isLandscape ? (
+			{/* {!isLandscape ? (
 				<div className="grid place-content-center p-8 h-screen w-screen">
 					<Lottie
 						loop
@@ -79,7 +79,9 @@ const Home = () => {
 
 					<SceneNoSSR />
 				</>
-			)}
+			)} */}
+
+			<SceneNoSSR />
 		</main>
 	);
 };
