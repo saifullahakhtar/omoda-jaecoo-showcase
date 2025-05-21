@@ -5,6 +5,8 @@ import React, { Suspense, useEffect, useRef, useState } from "react";
 // Dependencies
 import { Canvas } from "@react-three/fiber";
 import { useSnapshot } from "valtio";
+import { Perf } from "r3f-perf";
+import { PerformanceMonitor } from "@react-three/drei";
 
 // Store
 import { state } from "@/lib/store";
@@ -23,6 +25,7 @@ function Scene() {
 	const cameraRef = useRef();
 
 	const [mouseHoldTimer, setMouseHoldTimer] = useState(null);
+	const [dpr, setDpr] = useState(1);
 
 	useEffect(() => {
 		const handleMouseDown = () => {
@@ -67,9 +70,10 @@ function Scene() {
 
 			<Canvas
 				shadows
-				dpr={
-					typeof window !== "undefined" ? window.devicePixelRatio : 1
-				}
+				dpr={dpr}
+				// dpr={
+				// 	typeof window !== "undefined" ? window.devicePixelRatio : 1
+				// }
 				gl={{
 					preserveDrawingBuffer: true,
 					failIfMajorPerformanceCaveat: false,
@@ -77,14 +81,20 @@ function Scene() {
 				camera={{ position: [5, 0.5, 7], fov: isMobile ? 45 : 25 }}
 				ref={cameraRef}
 			>
-				<Studio />
-				<Jaecoo8
-					transitionColor={selectedColor}
-					currentAnimation={currentAnimation}
-					cameraRef={cameraRef}
-				/>
-				<Floor />
-				<Effects />
+				{/* <Perf position="top-left" showGraph /> */}
+				<PerformanceMonitor
+					onIncline={() => setDpr(2)}
+					onDecline={() => setDpr(1)}
+				>
+					<Studio />
+					<Jaecoo8
+						transitionColor={selectedColor}
+						currentAnimation={currentAnimation}
+						cameraRef={cameraRef}
+					/>
+					<Floor />
+					<Effects />
+				</PerformanceMonitor>
 			</Canvas>
 		</Suspense>
 	);

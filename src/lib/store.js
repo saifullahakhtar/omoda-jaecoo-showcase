@@ -24,6 +24,7 @@ const state = proxy({
 	loadingProgress: 0,
 	modelLoaded: false,
 	orbitActive: false,
+	interior: false,
 	isMobile: typeof window !== "undefined" ? window.innerWidth < 768 : false,
 });
 

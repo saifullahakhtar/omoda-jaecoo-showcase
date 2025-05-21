@@ -70,3 +70,46 @@ body {
 *:active {
 	cursor: none;
 } */
+
+.psv-navbar--open {
+	bottom: 32px !important;
+	border-radius: 50px;
+	padding: 10px;
+	text-align: center;
+	display: flex !important;
+	justify-content: center;
+	gap: 10px;
+	width: fit-content !important;
+	position: fixed !important;
+	left: 50% !important;
+	transform: translateX(-50%);
+	background-color: rgba(0, 0, 0, 0.2) !important;
+	backdrop-filter: blur(64px) !important	;
+	-webkit-backdrop-filter: blur(64px) !important;
+	filter: brightness(1.1) !important;
+	backdrop-filter: blur(5px);
+}
+
+.psv-overlay {
+	background: radial-gradient(
+		#000000 0%,
+		#191919 16%,
+		#222222 33%,
+		#2a2a2a 49%,
+		#333333 66%,
+		#444444 82%,
+		#555555 100%
+	) !important;
+}
+
+.psv-container {
+	background: radial-gradient(
+		#000000 0%,
+		#191919 16%,
+		#222222 33%,
+		#2a2a2a 49%,
+		#333333 66%,
+		#444444 82%,
+		#555555 100%
+	) !important;
+}
