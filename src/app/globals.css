@@ -90,6 +90,12 @@ body {
 	backdrop-filter: blur(5px);
 }
 
+@media only screen and (max-width: 1024px) {
+	.psv-navbar--open {
+		bottom: 12px !important;
+	}
+}
+
 .psv-overlay {
 	background: radial-gradient(
 		#000000 0%,
