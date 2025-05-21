@@ -12,7 +12,7 @@ import { ReactPhotoSphereViewer } from "react-photo-sphere-viewer";
 // import "@photo-sphere-viewer/compass-plugin/index.css";
 
 export default function Interior() {
-	const imgSrc = "/J8-interior-dark.jpg";
+	const imgSrc = "/j8-interior-dark.jpg";
 	// const plugins = [
 	// 	[
 	// 		MarkersPlugin,
